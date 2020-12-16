@@ -2,7 +2,7 @@ import { ACTION_TYPES } from "../../constants";
 
 export const setChatName = (name) => {
   return {
-    type: ACTION_TYPES.SET_CHAT_IMAGE,
+    type: ACTION_TYPES.SET_CHAT_NAME,
     payload: name,
   };
 };
