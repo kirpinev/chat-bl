@@ -6,14 +6,16 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import styled from "styled-components";
 
-import { Form, Title, Input, Button, Error } from "../uikit";
-import { setUserLogin } from "../redux/actions";
+import { setUserLogin } from "../../redux/actions";
+
+import { ROUTES } from "../../constants";
+
+import { Form, Title, Input, Button, Error } from "../../uikit";
 
 const Container = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
-
   height: 100vh;
   min-width: 320px;
 `;
@@ -24,7 +26,6 @@ const StyledTitle = styled(Title)`
 
 const Line = styled.hr`
   border: 1px solid #3c3844;
-
   margin: 40px 0 30px 0;
 `;
 
@@ -45,7 +46,7 @@ export const Login = () => {
   };
 
   return isInputValid ? (
-    <Redirect to="/chat" />
+    <Redirect to={ROUTES.CHAT} />
   ) : (
     <Container>
       <Form onSubmit={handleSubmit(onSubmit)}>

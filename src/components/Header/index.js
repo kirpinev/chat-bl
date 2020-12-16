@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-import { Header as HeaderContainer, ChatName, ChatImage } from "../uikit/Chat";
+import { Header as HeaderContainer, ChatName, ChatImage } from "../../uikit/Chat";
 
 export const Header = () => {
   const chat = useSelector((state) => state.chat);

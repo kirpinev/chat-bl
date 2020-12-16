@@ -1,12 +1,10 @@
 import React, { useCallback } from "react";
 import { useSelector } from "react-redux";
 
-import { MessageContainer, MessageText, MessageAuthor } from "../uikit";
+import { MessageContainer, MessageText, MessageAuthor } from "../../uikit";
 
 export const Messages = () => {
   const chatMessages = useSelector((state) => state.chat.messages);
-
-  console.log(chatMessages);
 
   const renderMessages = useCallback(() => {
     return chatMessages.map(({ text, user, id }) => (

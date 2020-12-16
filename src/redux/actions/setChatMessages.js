@@ -1,6 +1,8 @@
+import { ACTION_TYPES } from "../../constants";
+
 export const setChatMessages = (messages) => {
   return {
-    type: "SET_CHAT_MESSAGES",
+    type: ACTION_TYPES.SET_CHAT_MESSAGES,
     payload: messages,
   };
 };

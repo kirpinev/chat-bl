@@ -7,15 +7,16 @@ import { Redirect } from "react-router-dom";
 import { StreamChat } from "stream-chat";
 import styled from "styled-components";
 
-import { Header } from "./Header";
-import { Messages } from "./Messages";
+import { ROUTES } from "../../constants";
+
+import { Header, Loader, Messages } from "../../components";
 
 import {
   setChatName,
   setChatMessages,
   setNewChatMessage,
   setChatImage,
-} from "../redux/actions";
+} from "../../redux/actions";
 
 import {
   Chat as ChatContainer,
@@ -23,7 +24,7 @@ import {
   Input,
   Button,
   MessagesList,
-} from "../uikit";
+} from "../../uikit";
 
 const StyledForm = styled(Form)`
   display: flex;
@@ -84,8 +85,6 @@ export const Chat = () => {
       });
       await currChannel.watch();
 
-      console.log(currChannel);
-
       dispatch(setChatName(currChannel.data.name));
       dispatch(setChatMessages(currChannel.state.messages));
       dispatch(setChatImage(currChannel._data.image));
@@ -105,6 +104,7 @@ export const Chat = () => {
 
   useEffect(() => {
     initializeChat();
+    // eslint-disable-next-line
   }, []);
 
   const onSubmit = async ({ message }) => {
@@ -115,7 +115,7 @@ export const Chat = () => {
   };
 
   if (initChat) {
-    return <p>Грузим</p>;
+    return <Loader />;
   }
 
   return channel ? (
@@ -130,6 +130,6 @@ export const Chat = () => {
       </StyledForm>
     </ChatContainer>
   ) : (
-    <Redirect to="/" />
+    <Redirect to={ROUTES.LOGIN} />
   );
 };

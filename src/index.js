@@ -4,8 +4,7 @@ import { Provider } from "react-redux";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import { store } from "./redux/store";
-import { Login } from "./components/Login";
-import { Chat } from "./components/Chat";
+import { Chat, Login } from "./pages";
 import { GlobalStyle } from "./styles/GlobalStyle";
 
 const App = () => (

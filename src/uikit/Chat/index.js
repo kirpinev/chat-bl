@@ -11,6 +11,5 @@ export { MessageAuthor } from "./MessageAuthor";
 export const Chat = styled.div`
   display: flex;
   flex-direction: column;
-
   height: 100%;
 `;
