@@ -30,7 +30,13 @@ const Line = styled.hr`
 `;
 
 const loginSchema = yup.object().shape({
-  login: yup.string().min(2).max(30),
+  login: yup
+    .string()
+    .required("Login is required")
+    .matches(
+      /[a-z0-9@]+/g,
+      "Login is not valid, use lowercase latin letters and numbers"
+    ),
 });
 
 export const Login = () => {
